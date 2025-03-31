@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>MBI Interactive Dashboard - Mynd & Bodi Institute</title>
+   
+   <!-- Bootstrap CSS -->
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+   
+   <!-- Font Awesome -->
+   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+   
+   <!-- Google Fonts -->
+   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+   
+   <!-- Chart.js -->
+   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+   
+   <!-- Custom CSS -->
+   <link href="../css/styles.css" rel="stylesheet">
+   <link href="../css/responsive.css" rel="stylesheet">
+   <link href="../css/dashboard.css" rel="stylesheet">
+</head>
+<body class="loading">
+   <!-- Skip to content link for accessibility -->
+   <a href="#main-content" class="skip-to-content">Skip to content</a>
+   
+   <!-- Loading spinner -->
+   <div class="loading-spinner">
+       <div class="spinner-border text-primary" role="status">
+           <span class="visually-hidden">Loading...</span>
+       </div>
+   </div>
+   
+   <!-- Navigation -->
+   <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+       <div class="container">
+           <a class="navbar-brand d-flex align-items-center" href="../index.html">
+               <img src="../images/mbi-logo.svg" alt="MBI Logo" height="40" class="me-2">
+               <span>Mynd & Bodi Institute</span>
+           </a>
+           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+               <span class="navbar-toggler-icon"></span>
+           </button>
+           <div class="collapse navbar-collapse" id="navbarNav">
+               <ul class="navbar-nav ms-auto">
+                   <li class="nav-item">
+                       <a class="nav-link" href="../index.html">Home</a>
+                   </li>
+                   <li class="nav-item">
+                       <a class="nav-link" href="whitepaper.html">Whitepaper</a>
+                   </li>
+                   <li class="nav-item">
+                       <a class="nav-link" href="business-plan.html">Business Plan</a>
+                   </li>
+                   <li class="nav-item">
+                       <a class="nav-link active" href="dashboard.html">Dashboard</a>
+                   </li>
+                   <li class="nav-item">
+                       <button id="dark-mode-toggle" class="btn btn-outline-light ms-2" aria-label="Toggle dark mode">
+                           <i class="fas fa-moon"></i>
+                       </button>
+                   </li>
+               </ul>
+           </div>
+       </div>
+   </nav>
+   
+   <!-- Header -->
+   <header class="bg-primary text-white py-4">
+       <div class="container">
+           <h1>Interactive Business Dashboard</h1>
+           <p class="lead">Explore MBI's market opportunity, business model, and growth strategy</p>
+       </div>
+   </header>
+   
+   <!-- Main Content -->
+   <main id="main-content" class="py-4">
+       <div class="container">
+           <!-- Dashboard Navigation -->
+           <div class="dashboard-nav mb-4">
+               <ul class="nav nav-pills nav-fill" id="dashboardTabs" role="tablist">
+                   <li class="nav-item" role="presentation">
+                       <button class="nav-link active" id="overview-tab" data-bs-toggle="pill" data-bs-target="#overview" type="button" role="tab" aria-controls="overview" aria-selected="true">
+                           <i class="fas fa-home me-2"></i>Overview
+                       </button>
+                   </li>
+                   <li class="nav-item" role="presentation">
+                       <button class="nav-link" id="market-tab" data-bs-toggle="pill" data-bs-target="#market" type="button" role="tab" aria-controls="market" aria-selected="false">
+                           <i class="fas fa-chart-line me-2"></i>Market Analysis
+                       </button>
+                   </li>
+                   <li class="nav-item" role="presentation">
+                       <button class="nav-link" id="business-tab" data-bs-toggle="pill" data-bs-target="#business" type="button" role="tab" aria-controls="business" aria-selected="false">
+                           <i class="fas fa-briefcase me-2"></i>Business Model
+                       </button>
+                   </li>
+                   <li class="nav-item" role="presentation">
+                       <button class="nav-link" id="growth-tab" data-bs-toggle="pill" data-bs-target="#growth" type="button" role="tab" aria-controls="growth" aria-selected="false">
+                           <i class="fas fa-rocket me-2"></i>Growth Strategy
+                       </button>
+                   </li>
+               </ul>
+           </div>
+           
+           <!-- Dashboard Content -->
+           <div class="tab-content" id="dashboardTabContent">
+               <!-- Overview Tab -->
+               <div class="tab-pane fade show active" id="overview" role="tabpanel" aria-labelledby="overview-tab">
+                   <div class="row g-4">
+                       <div class="col-md-6">
+                           <div class="card h-100 shadow-sm">
+                               <div class="card-body">
+                                   <h2 class="card-title">MBI at a Glance</h2>
+                                   <div class="overview-stats">
+                                       <div class="stat-item">
+                                           <div class="stat-value">$773B</div>
+                                           <div class="stat-label">Preventive Healthcare Market by 2034</div>
+                                       </div>
+                                       <div class="stat-item">
+                                           <div class="stat-value">10%</div>
+                                           <div class="stat-label">Annual Market Growth</div>
+                                       </div>
+                                       <div class="stat-item">
+                                           <div class="stat-value">$87.3M</div>
+                                           <div class="stat-label">Projected Revenue by Year 5</div>
+                                       </div>
+                                       <div class="stat-item">
+                                           <div class="stat-value">22%</div>
+                                           <div class="stat-label">Projected EBITDA Margin</div>
+                                       </div>
+                                   </div>
+                               </div>
+                           </div>
+                       </div>
+                       <div class="col-md-6">
+                           <div class="card h-100 shadow-sm">
+                               <div class="card-body">
+                                   <h2 class="card-title">Revenue Projection</h2>
+                                   <canvas id="revenueChart" height="250"></canvas>
+                               </div>
+                           </div>
+                       </div>
+                       <div class="col-md-12">
+                           <div class="card shadow-sm">
+                               <div class="card-body">
+                                   <h2 class="card-title">Value Proposition</h2>
+                                   <div class="value-proposition">
+                                       <div class="row g-4">
+                                           <div class="col-md-4">
+                                               <div class="value-card" id="individual-value">
+                                                   <div class="value-icon">
+                                                       <i class="fas fa-user"></i>
+                                                   </div>
+                                                   <h3>For Individuals</h3>
+                                                   <p>Comprehensive wellness membership with unlimited primary care, mental health support, and personalized AI-driven health pathways.</p>
+                                               </div>
+                                           </div>
+                                           <div class="col-md-4">
+                                               <div class="value-card" id="corporate-value">
+                                                   <div class="value-icon">
+                                                       <i class="fas fa-building"></i>
+                                                   </div>
+                                                   <h3>For Employers</h3>
+                                                   <p>Turnkey wellness solution that reduces healthcare costs, improves productivity, and enhances employee retention.</p>
+                                               </div>
+                                           </div>
+                                           <div class="col-md-4">
+                                               <div class="value-card" id="provider-value">
+                                                   <div class="value-icon">
+                                                       <i class="fas fa-stethoscope"></i>
+                                                   </div>
+                                                   <h3>For Providers</h3>
+                                                   <p>Streamlined administrative processes, AI-assisted decision support, and access to an engaged patient population.</p>
+                                               </div>
+                                           </div>
+                                       </div>
+                                   </div>
+                               </div>
+                           </div>
+                       </div>
+                   </div>
+               </div>
+               
+               <!-- Market Analysis Tab -->
+               <div class="tab-pane fade" id="market" role="tabpanel" aria-labelledby="market-tab">
+                   <div class="row g-4">
+                       <div class="col-md-6">
+                           <div class="card h-100 shadow-sm">
+                               <div class="card-body">
+                                   <h2 class="card-title">Market Size & Growth</h2>
+                                   <canvas id="marketSizeChart" height="250"></canvas>
+                               </div>
+                           </div>
+                       </div>
+                       <div class="col-md-6">
+                           <div class="card h-100 shadow-sm">
+                               <div class="card-body">
+                                   <h2 class="card-title">Healthcare Spending vs. Outcomes</h2>
+                                   <div class="spending-outcomes">
+                                       <p>The U.S. spends ~17.8% of GDP on health (nearly twice the OECD average), yet trails in outcomes and life expectancy.</p>
+                                       <div class="comparison-chart">
+                                           <div class="country-bar">
+                                               <div class="country-label">USA</div>
+                                               <div class="spending-bar" style="width: 100%;">17.8%</div>
+                                               <div class="outcome-indicator" style="left: 70%;">
+                                                   <i class="fas fa-heartbeat"></i>
+                                               </div>
+                                           </div>
+                                           <div class="country-bar">
+                                               <div class="country-label">OECD Avg</div>
+                                               <div class="spending-bar" style="width: 56%;">9.9%</div>
+                                               <div class="outcome-indicator" style="left: 85%;">
+                                                   <i class="fas fa-heartbeat"></i>
+                                               </div>
+                                           </div>
+                                       </div>
+                                       <div class="legend">
+                                           <div class="legend-item">
+                                               <div class="spending-bar-sample"></div>
+                                               <span>Healthcare Spending (% of GDP)</span>
+                                           </div>
+                                           <div class="legend-item">
+                                               <i class="fas fa-heartbeat"></i>
+                                               <span>Health Outcomes (Relative Position)</span>
+                                           </div>
+                                       </div>
+                                   </div>
+                               </div>
+                           </div>
+                       </div>
+                       <div class="col-md-12">
+                           <div class="card shadow-sm">
+                               <div class="card-body">
+                                   <h2 class="card-title">Competitive Landscape</h2>
+                                   <div class="competitive-landscape">
+                                       <div class="competitor-grid">
+                                           <div class="competitor-card" data-competitor="forward">
+                                               <h3>Forward Health</h3>
+                                               <div class="competitor-details">
+                                                   <div class="detail-item">
+                                                       <span class="detail-label">Model:</span>
+                                                       <span class="detail-value">Membership-based preventive care with high-tech clinics</span>
+                                                   </div>
+                                                   <div class="detail-item">
+                                                       <span class="detail-label">Price:</span>
+                                                       <span class="detail-value">~$149/month ($1,800/year)</span>
+                                                   </div>
+                                                   <div class="detail-item">
+                                                       <span class="detail-label">Strengths:</span>
+                                                       <span class="detail-value">Premium experience, no wait times, data-driven</span>
+                                                   </div>
+                                                   <div class="detail-item">
+                                                       <span class="detail-label">Weaknesses:</span>
+                                                       <span class="detail-value">High price, limited reach, capital-intensive</span>
+                                                   </div>
+                                               </div>
+                                           </div>
+                                           <div class="competitor-card" data-competitor="parsley">
+                                               <h3>Parsley Health</h3>
+                                               <div class="competitor-details">
+                                                   <div class="detail-item">
+                                                       <span class="detail-label">Model:</span>
+                                                       <span class="detail-value">Holistic functional medicine with lifestyle coaching</span>
+                                                   </div>
+                                                   <div class="detail-item">
+                                                       <span class="detail-label">Price:</span>
+                                                       <span class="detail-value">~$150/month ($1,800/year)</span>
+                                                   </div>
+                                                   <div class="detail-item">
+                                                       <span class="detail-label">Strengths:</span>
+                                                       <span class="detail-value">Holistic approach, telehealth options, personalized</span>
+                                                   </div>
+                                                   <div class="detail-item">
+                                                       <span class="detail-label">Weaknesses:</span>
+                                                       <span class="detail-value">Price barrier, physical centers, scaling challenges</span>
+                                                   </div>
+                                               </div>
+                                           </div>
+                                           <div class="competitor-card highlight-card" data-competitor="mbi">
+                                               <h3>MBI (Our Approach)</h3>
+                                               <div class="competitor-details">
+                                                   <div class="detail-item">
+                                                       <span class="detail-label">Model:</span>
+                                                       <span class="detail-value">AI-powered preventative platform with tiered membership</span>
+                                                   </div>
+                                                   <div class="detail-item">
+                                                       <span class="detail-label">Price:</span>
+                                                       <span class="detail-value">$99-349/month (tiered approach)</span>
+                                                   </div>
+                                                   <div class="detail-item">
+                                                       <span class="detail-label">Strengths:</span>
+                                                       <span class="detail-value">Integrated ecosystem, AI personalization, scalable</span>
+                                                   </div>
+                                                   <div class="detail-item">
+                                                       <span class="detail-label">Differentiation:</span>
+                                                       <span class="detail-value">Insurance pathway, multiple revenue streams</span>
+                                                   </div>
+                                               </div>
+                                           </div>
+                                       </div>
+                                   </div>
+                               </div>
+                           </div>
+                       </div>
+                   </div>
+               </div>
+               
+               <!-- Business Model Tab -->
+               <div class="tab-pane fade" id="business" role="tabpanel" aria-labelledby="business-tab">
+                   <div class="row g-4">
+                       <div class="col-md-6">
+                           <div class="card h-100 shadow-sm">
+                               <div class="card-body">
+                                   <h2 class="card-title">Revenue Streams</h2>
+                                   <canvas id="revenueStreamsChart" height="250"></canvas>
+                               </div>
+                           </div>
+                       </div>
+                       <div class="col-md-6">
+                           <div class="card h-100 shadow-sm">
+                               <div class="card-body">
+                                   <h2 class="card-title">Membership Tiers</h2>
+                                   <div class="membership-tiers">
+                                       <div class="tier-slider">
+                                           <input type="range" class="form-range" min="1" max="3" step="1" id="tierSlider" value="1">
+                                           <div class="tier-labels">
+                                               <span class="tier-label active" data-tier="1">Basic</span>
+                                               <span class="tier-label" data-tier="2">Premium</span>
+                                               <span class="tier-label" data-tier="3">Elite</span>
+                                           </div>
+                                       </div>
+                                       <div class="tier-details">
+                                           <div class="tier-detail active" id="tier-1-details">
+                                               <div class="tier-price">$  id="tier-1-details">
+                                               <div class="tier-price">$99<span>/month</span></div>
+                                               <ul class="tier-features">
+                                                   <li><i class="fas fa-check"></i> Unlimited virtual primary care</li>
+                                                   <li><i class="fas fa-check"></i> Annual wellness screening</li>
+                                                   <li><i class="fas fa-check"></i> Basic health monitoring</li>
+                                                   <li><i class="fas fa-check"></i> AI-powered health insights</li>
+                                                   <li><i class="fas fa-times"></i> Dedicated health coaching</li>
+                                                   <li><i class="fas fa-times"></i> Advanced testing</li>
+                                               </ul>
+                                           </div>
+                                           <div class="tier-detail" id="tier-2-details">
+                                               <div class="tier-price">$199<span>/month</span></div>
+                                               <ul class="tier-features">
+                                                   <li><i class="fas fa-check"></i> Unlimited virtual primary care</li>
+                                                   <li><i class="fas fa-check"></i> Quarterly wellness screenings</li>
+                                                   <li><i class="fas fa-check"></i> Advanced health monitoring</li>
+                                                   <li><i class="fas fa-check"></i> AI-powered health insights</li>
+                                                   <li><i class="fas fa-check"></i> Monthly health coaching</li>
+                                                   <li><i class="fas fa-times"></i> Advanced testing</li>
+                                               </ul>
+                                           </div>
+                                           <div class="tier-detail" id="tier-3-details">
+                                               <div class="tier-price">$349<span>/month</span></div>
+                                               <ul class="tier-features">
+                                                   <li><i class="fas fa-check"></i> Unlimited virtual & in-person care</li>
+                                                   <li><i class="fas fa-check"></i> Quarterly wellness screenings</li>
+                                                   <li><i class="fas fa-check"></i> Premium health monitoring</li>
+                                                   <li><i class="fas fa-check"></i> Advanced AI health insights</li>
+                                                   <li><i class="fas fa-check"></i> Weekly dedicated health coaching</li>
+                                                   <li><i class="fas fa-check"></i> Advanced testing (genetic, etc.)</li>
+                                               </ul>
+                                           </div>
+                                       </div>
+                                   </div>
+                               </div>
+                           </div>
+                       </div>
+                       <div class="col-md-12">
+                           <div class="card shadow-sm">
+                               <div class="card-body">
+                                   <h2 class="card-title">Unit Economics</h2>
+                                   <div class="unit-economics">
+                                       <div class="row">
+                                           <div class="col-md-6">
+                                               <div class="economics-metrics">
+                                                   <div class="metric-item">
+                                                       <div class="metric-label">Customer Acquisition Cost (CAC)</div>
+                                                       <div class="metric-value">$350</div>
+                                                   </div>
+                                                   <div class="metric-item">
+                                                       <div class="metric-label">Average Revenue Per User (ARPU)</div>
+                                                       <div class="metric-value">$175/month</div>
+                                                   </div>
+                                                   <div class="metric-item">
+                                                       <div class="metric-label">Lifetime Value (LTV)</div>
+                                                       <div class="metric-value">$3,850</div>
+                                                   </div>
+                                                   <div class="metric-item highlight-metric">
+                                                       <div class="metric-label">LTV:CAC Ratio</div>
+                                                       <div class="metric-value">11:1</div>
+                                                   </div>
+                                                   <div class="metric-item">
+                                                       <div class="metric-label">Payback Period</div>
+                                                       <div class="metric-value">2 months</div>
+                                                   </div>
+                                               </div>
+                                           </div>
+                                           <div class="col-md-6">
+                                               <canvas id="ltvcacChart" height="250"></canvas>
+                                           </div>
+                                       </div>
+                                   </div>
+                               </div>
+                           </div>
+                       </div>
+                   </div>
+               </div>
+               
+               <!-- Growth Strategy Tab -->
+               <div class="tab-pane fade" id="growth" role="tabpanel" aria-labelledby="growth-tab">
+                   <div class="row g-4">
+                       <div class="col-md-12">
+                           <div class="card shadow-sm">
+                               <div class="card-body">
+                                   <h2 class="card-title">Growth Roadmap</h2>
+                                   <div class="growth-roadmap">
+                                       <div class="roadmap-timeline">
+                                           <div class="timeline-phase active" data-phase="launch">
+                                               <div class="phase-marker">
+                                                   <div class="phase-dot"></div>
+                                                   <div class="phase-line"></div>
+                                               </div>
+                                               <div class="phase-content">
+                                                   <h3>Launch Phase</h3>
+                                                   <div class="phase-period">0-12 months</div>
+                                               </div>
+                                           </div>
+                                           <div class="timeline-phase" data-phase="expansion">
+                                               <div class="phase-marker">
+                                                   <div class="phase-dot"></div>
+                                                   <div class="phase-line"></div>
+                                               </div>
+                                               <div class="phase-content">
+                                                   <h3>Expansion Phase</h3>
+                                                   <div class="phase-period">12-36 months</div>
+                                               </div>
+                                           </div>
+                                           <div class="timeline-phase" data-phase="scale">
+                                               <div class="phase-marker">
+                                                   <div class="phase-dot"></div>
+                                                   <div class="phase-line"></div>
+                                               </div>
+                                               <div class="phase-content">
+                                                   <h3>Scale Phase</h3>
+                                                   <div class="phase-period">36-60 months</div>
+                                               </div>
+                                           </div>
+                                           <div class="timeline-phase" data-phase="insurance">
+                                               <div class="phase-marker">
+                                                   <div class="phase-dot"></div>
+                                               </div>
+                                               <div class="phase-content">
+                                                   <h3>Insurance Transition</h3>
+                                                   <div class="phase-period">60+ months</div>
+                                               </div>
+                                           </div>
+                                       </div>
+                                       <div class="phase-details">
+                                           <div class="phase-detail active" id="launch-details">
+                                               <h4>Launch Phase (0-12 months)</h4>
+                                               <p>Begin with an invite-only or pilot program targeting high-engagement early adopters. Onboard a few hundred members to validate the model. Focus on refining the member experience, testing our AI insights with real data, and proving that members use and value the service.</p>
+                                               <div class="phase-metrics">
+                                                   <div class="metric-item">
+                                                       <div class="metric-label">Target Members</div>
+                                                       <div class="metric-value">500+</div>
+                                                   </div>
+                                                   <div class="metric-item">
+                                                       <div class="metric-label">Provider Network</div>
+                                                       <div class="metric-value">1 Region</div>
+                                                   </div>
+                                                   <div class="metric-item">
+                                                       <div class="metric-label">Key Focus</div>
+                                                       <div class="metric-value">Product Validation</div>
+                                                   </div>
+                                               </div>
+                                           </div>
+                                           <div class="phase-detail" id="expansion-details">
+                                               <h4>Expansion Phase (12-36 months)</h4>
+                                               <p>With proof-of-concept in hand, expand to broader consumer market and initiate B2B offerings. Scale to thousands of individual users via digital marketing and word-of-mouth referrals, and sign on mid-sized employers for corporate wellness pilots.</p>
+                                               <div class="phase-metrics">
+                                                   <div class="metric-item">
+                                                       <div class="metric-label">Target Members</div>
+                                                       <div class="metric-value">10,000+</div>
+                                                   </div>
+                                                   <div class="metric-item">
+                                                       <div class="metric-label">Provider Network</div>
+                                                       <div class="metric-value">Multiple Regions</div>
+                                                   </div>
+                                                   <div class="metric-item">
+                                                       <div class="metric-label">Key Focus</div>
+                                                       <div class="metric-value">Unit Economics</div>
+                                                   </div>
+                                               </div>
+                                           </div>
+                                           <div class="phase-detail" id="scale-details">
+                                               <h4>Scale Phase (36-60 months)</h4>
+                                               <p>Aggressively grow enterprise and partnership channels. Sign major corporate clients (Fortune 500 companies) and pursue white-label deals with insurance companies. This phase could include geographic expansion beyond initial regions, possibly international pilots.</p>
+                                               <div class="phase-metrics">
+                                                   <div class="metric-item">
+                                                       <div class="metric-label">Target Members</div>
+                                                       <div class="metric-value">100,000+</div>
+                                                   </div>
+                                                   <div class="metric-item">
+                                                       <div class="metric-label">Provider Network</div>
+                                                       <div class="metric-value">National</div>
+                                                   </div>
+                                                   <div class="metric-item">
+                                                       <div class="metric-label">Key Focus</div>
+                                                       <div class="metric-value">Profitability</div>
+                                                   </div>
+                                               </div>
+                                           </div>
+                                           <div class="phase-detail" id="insurance-details">
+                                               <h4>Insurance Transition Phase (60+ months)</h4>
+                                               <p>Leverage the extensive health data and outcomes collected to transition into offering preventative-first insurance products. This may involve obtaining insurance licenses or partnering with an insurer to underwrite plans.</p>
+                                               <div class="phase-metrics">
+                                                   <div class="metric-item">
+                                                       <div class="metric-label">Target Members</div>
+                                                       <div class="metric-value">500,000+</div>
+                                                   </div>
+                                                   <div class="metric-item">
+                                                       <div class="metric-label">Provider Network</div>
+                                                       <div class="metric-value">Global</div>
+                                                   </div>
+                                                   <div class="metric-item">
+                                                       <div class="metric-label">Key Focus</div>
+                                                       <div class="metric-value">Insurance Model</div>
+                                                   </div>
+                                               </div>
+                                           </div>
+                                       </div>
+                                   </div>
+                               </div>
+                           </div>
+                       </div>
+                       <div class="col-md-6">
+                           <div class="card h-100 shadow-sm">
+                               <div class="card-body">
+                                   <h2 class="card-title">Member Growth Projection</h2>
+                                   <canvas id="memberGrowthChart" height="250"></canvas>
+                               </div>
+                           </div>
+                       </div>
+                       <div class="col-md-6">
+                           <div class="card h-100 shadow-sm">
+                               <div class="card-body">
+                                   <h2 class="card-title">Investment Allocation</h2>
+                                   <div class="investment-allocation">
+                                       <canvas id="investmentChart" height="250"></canvas>
+                                   </div>
+                               </div>
+                           </div>
+                       </div>
+                   </div>
+               </div>
+           </div>
+       </div>
+   </main>
+   
+   <!-- Footer -->
+   <footer class="bg-dark text-white py-4">
+       <div class="container">
+           <div class="row">
+               <div class="col-md-6">
+                   <img src="../images/mbi-logo.svg" alt="MBI Logo" height="40" class="footer-logo mb-3">
+                   <p>Health First, Always</p>
+               </div>
+               <div class="col-md-6 text-md-end">
+                   <ul class="list-inline">
+                       <li class="list-inline-item"><a href="../index.html" class="text-white">Home</a></li>
+                       <li class="list-inline-item"><a href="whitepaper.html" class="text-white">Whitepaper</a></li>
+                       <li class="list-inline-item"><a href="business-plan.html" class="text-white">Business Plan</a></li>
+                       <li class="list-inline-item"><a href="dashboard.html" class="text-white">Dashboard</a></li>
+                   </ul>
+                   <p class="mt-2">© 2025 Mynd & Bodi Institute. All rights reserved.</p>
+               </div>
+           </div>
+       </div>
+   </footer>
+   
+   <!-- Bootstrap JS -->
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+   
+   <!-- Custom JS -->
+   <script src="../js/main.js"></script>
+   <script src="../js/dashboard.js"></script>
+</body>
+</html>
+
+## Complete Preview Instructions
+
+To preview the website locally:
+
+1. **Download all files** and maintain the folder structure:

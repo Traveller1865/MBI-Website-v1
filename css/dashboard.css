@@ -1,0 +1,517 @@
+/* Dashboard-specific styles for MBI interactive UI */
+
+/* Dashboard navigation */
+.dashboard-nav {
+    margin-bottom: 2rem;
+  }
+  
+  .dashboard-nav .nav-pills .nav-link {
+    border-radius: 0.5rem;
+    padding: 0.75rem 1.25rem;
+    font-weight: 500;
+    color: var(--secondary);
+    transition: all 0.2s ease;
+  }
+  
+  .dashboard-nav .nav-pills .nav-link.active {
+    background-color: var(--primary);
+    color: white;
+  }
+  
+  .dashboard-nav .nav-pills .nav-link:hover:not(.active) {
+    background-color: rgba(0, 86, 179, 0.1);
+  }
+  
+  /* Overview stats */
+  .overview-stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+  }
+  
+  .stat-item {
+    text-align: center;
+    padding: 1.25rem;
+    border-radius: 0.5rem;
+    background-color: rgba(0, 86, 179, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .stat-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .stat-value {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+  }
+  
+  .stat-label {
+    font-size: 0.9rem;
+    color: var(--secondary);
+  }
+  
+  /* Value proposition cards */
+  .value-proposition {
+    margin-top: 1.5rem;
+  }
+  
+  .value-card {
+    height: 100%;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    background-color: rgba(0, 86, 179, 0.05);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .value-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .value-icon {
+    font-size: 2.5rem;
+    color: var(--primary);
+    margin-bottom: 1rem;
+  }
+  
+  .value-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+  }
+  
+  /* Healthcare spending comparison */
+  .spending-outcomes {
+    margin-top: 1.5rem;
+  }
+  
+  .comparison-chart {
+    margin: 2rem 0;
+  }
+  
+  .country-bar {
+    margin-bottom: 1.5rem;
+    position: relative;
+  }
+  
+  .country-label {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+  
+  .spending-bar {
+    height: 2rem;
+    background-color: var(--primary);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 1rem;
+    border-radius: 0.25rem;
+    font-weight: 500;
+  }
+  
+  .outcome-indicator {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--success);
+    font-size: 1.25rem;
+  }
+  
+  .legend {
+    display: flex;
+    gap: 2rem;
+    margin-top: 1rem;
+  }
+  
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+  }
+  
+  .spending-bar-sample {
+    width: 2rem;
+    height: 1rem;
+    background-color: var(--primary);
+    border-radius: 0.25rem;
+  }
+  
+  /* Competitive landscape */
+  .competitive-landscape {
+    margin-top: 1.5rem;
+  }
+  
+  .competitor-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+  
+  .competitor-card {
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    background-color: rgba(0, 86, 179, 0.05);
+    height: 100%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .competitor-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .competitor-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+  
+  .competitor-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  .detail-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  
+  .detail-label {
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+  
+  .highlight-card {
+    background-color: rgba(0, 86, 179, 0.15);
+    border: 2px solid var(--primary);
+  }
+  
+  /* Membership tiers */
+  .membership-tiers {
+    margin-top: 1.5rem;
+  }
+  
+  .tier-slider {
+    margin-bottom: 2rem;
+  }
+  
+  .tier-labels {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0.5rem;
+  }
+  
+  .tier-label {
+    font-weight: 500;
+    color: var(--secondary);
+    cursor: pointer;
+    transition: color 0.2s ease;
+  }
+  
+  .tier-label.active {
+    color: var(--primary);
+    font-weight: 600;
+  }
+  
+  .tier-details {
+    position: relative;
+    min-height: 300px;
+  }
+  
+  .tier-detail {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+  }
+  
+  .tier-detail.active {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  .tier-price {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary);
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+  
+  .tier-price span {
+    font-size: 1rem;
+    font-weight: 400;
+  }
+  
+  .tier-features {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .tier-features li {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  
+  .tier-features li:last-child {
+    border-bottom: none;
+  }
+  
+  .tier-features li i.fa-check {
+    color: var(--success);
+  }
+  
+  .tier-features li i.fa-times {
+    color: var(--secondary);
+  }
+  
+  /* Unit economics */
+  .unit-economics {
+    margin-top: 1.5rem;
+  }
+  
+  .economics-metrics {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .metric-item {
+    padding: 1rem;
+    border-radius: 0.5rem;
+    background-color: rgba(0, 86, 179, 0.05);
+  }
+  
+  .metric-label {
+    font-size: 0.9rem;
+    color: var(--secondary);
+    margin-bottom: 0.5rem;
+  }
+  
+  .metric-value {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--dark);
+  }
+  
+  .highlight-metric {
+    background-color: rgba(0, 86, 179, 0.15);
+    border-left: 4px solid var(--primary);
+  }
+  
+  .highlight-metric .metric-value {
+    color: var(--primary);
+  }
+  
+  /* Growth roadmap */
+  .growth-roadmap {
+    margin-top: 1.5rem;
+  }
+  
+  .roadmap-timeline {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 3rem;
+    position: relative;
+  }
+  
+  .roadmap-timeline::before {
+    content: "";
+    position: absolute;
+    top: 2rem;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: rgba(0, 0, 0, 0.1);
+    z-index: 0;
+  }
+  
+  .timeline-phase {
+    position: relative;
+    width: 25%;
+    cursor: pointer;
+  }
+  
+  .phase-marker {
+    position: relative;
+    height: 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .phase-dot {
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    background-color: var(--light);
+    border: 2px solid var(--secondary);
+    z-index: 1;
+    transition: all 0.3s ease;
+  }
+  
+  .timeline-phase.active .phase-dot {
+    background-color: var(--primary);
+    border-color: var(--primary);
+    transform: scale(1.2);
+  }
+  
+  .phase-line {
+    position: absolute;
+    top: 0.75rem;
+    left: 50%;
+    width: 100%;
+    height: 2px;
+    background-color: transparent;
+    z-index: 0;
+  }
+  
+  .phase-content {
+    text-align: center;
+    padding-top: 0.5rem;
+  }
+  
+  .phase-content h3 {
+    font-size: 1rem;
+    margin-bottom: 0.25rem;
+    transition: color 0.3s ease;
+  }
+  
+  .timeline-phase.active .phase-content h3 {
+    color: var(--primary);
+    font-weight: 600;
+  }
+  
+  .phase-period {
+    font-size: 0.8rem;
+    color: var(--secondary);
+  }
+  
+  .phase-details {
+    position: relative;
+    min-height: 250px;
+  }
+  
+  .phase-detail {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+  }
+  
+  .phase-detail.active {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  .phase-metrics {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+  
+  /* Investment allocation */
+  .investment-allocation {
+    margin-top: 1.5rem;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 991px) {
+    .competitor-grid {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  
+    .phase-metrics {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (max-width: 767px) {
+    .overview-stats {
+      grid-template-columns: 1fr;
+    }
+  
+    .roadmap-timeline {
+      flex-direction: column;
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+  
+    .roadmap-timeline::before {
+      display: none;
+    }
+  
+    .timeline-phase {
+      width: 100%;
+      display: flex;
+      align-items: center;
+    }
+  
+    .phase-marker {
+      width: 4rem;
+    }
+  
+    .phase-content {
+      flex: 1;
+      text-align: left;
+      padding-left: 1rem;
+    }
+  
+    .phase-metrics {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  /* Dark mode adjustments */
+  body.dark-mode-enabled .stat-item,
+  body.dark-mode-enabled .value-card,
+  body.dark-mode-enabled .competitor-card,
+  body.dark-mode-enabled .metric-item {
+    background-color: rgba(77, 148, 255, 0.1);
+  }
+  
+  body.dark-mode-enabled .highlight-card,
+  body.dark-mode-enabled .highlight-metric {
+    background-color: rgba(77, 148, 255, 0.2);
+  }
+  
+  body.dark-mode-enabled .tier-features li {
+    border-bottom-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  body.dark-mode-enabled .roadmap-timeline::before {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  body.dark-mode-enabled .phase-dot {
+    background-color: var(--dark);
+    border-color: var(--secondary);
+  }
+  
+  body.dark-mode-enabled .timeline-phase.active .phase-dot {
+    background-color: var(--primary);
+    border-color: var(--primary);
+  }
+  
+  
